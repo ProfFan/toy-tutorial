@@ -5,16 +5,15 @@ configure_lit_site_cfg(
         ${CMAKE_CURRENT_SOURCE_DIR}/lit.cfg.py
 )
 
-set(STANDALONE_TEST_DEPENDS
+set(TOY_TEST_DEPENDS
         FileCheck count not
-        standalone-opt
-        standalone-translate
+        toyc
         )
 
-add_lit_testsuite(check-standalone "Running the standalone regression tests"
+add_lit_testsuite(check-toy "Running the toy regression tests"
         ${CMAKE_CURRENT_BINARY_DIR}
-        DEPENDS ${STANDALONE_TEST_DEPENDS}
+        DEPENDS ${TOY_TEST_DEPENDS}
         )
-set_target_properties(check-standalone PROPERTIES FOLDER "Tests")
+set_target_properties(check-toy PROPERTIES FOLDER "Tests")
 
-add_lit_testsuites(STANDALONE ${CMAKE_CURRENT_SOURCE_DIR} DEPENDS ${STANDALONE_TEST_DEPENDS})
+add_lit_testsuites(TOY ${CMAKE_CURRENT_SOURCE_DIR} DEPENDS ${TOY_TEST_DEPENDS})

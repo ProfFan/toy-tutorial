@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13.4)
-project(standalone-dialect LANGUAGES CXX C)
+project(toy-dialect LANGUAGES CXX C)
 
 set(CMAKE_BUILD_WITH_INSTALL_NAME_DIR ON)
 
@@ -28,6 +28,6 @@ include_directories(${PROJECT_BINARY_DIR}/include)
 link_directories(${LLVM_BUILD_LIBRARY_DIR})
 add_definitions(${LLVM_DEFINITIONS})
 
-add_subdirectory(include)
 add_subdirectory(lib)
 add_subdirectory(test)
+add_subdirectory(toyc)
